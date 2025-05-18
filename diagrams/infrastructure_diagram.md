@@ -1,0 +1,10 @@
+graph TD;
+    A[VPC] -->|Subnets| B[Public Subnet];
+    A -->|Subnets| C[Private Subnet];
+    B -->|Internet| D[Internet Gateway];
+    C -->|Endpoints| E[RDS];
+    C -->|Endpoints| F[Elastic Container Service];
+    F -->|Service| G[Load Balancer];
+    G -->|Route| H[Microservices];
+    I[Security Groups] -->|Rules| A;
+    J[IAM Roles] -->|Permissions| F;
